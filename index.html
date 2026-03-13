@@ -29,11 +29,11 @@
         <div class="glass p-6 rounded-3xl w-full max-w-sm">
             <h2 class="text-lg mb-4 opacity-70">Wybierz czas pracy:</h2>
             <div class="grid grid-cols-2 gap-3">
-                <button onclick="startTimer(3600)" class="glass py-4 rounded-2xl hover:bg-white/10">1h</button>
-                <button onclick="startTimer(2700)" class="glass py-4 rounded-2xl hover:bg-white/10">45m</button>
                 <button onclick="startTimer(1800)" class="glass py-4 rounded-2xl hover:bg-white/10">30m</button>
-                <button onclick="startTimer(900)" class="glass py-4 rounded-2xl hover:bg-white/10">15m</button>
-                <button onclick="startTimer(10)" class="col-span-2 border border-[#44e57a]/30 py-2 rounded-xl text-[#44e57a] text-sm">Test (10s)</button>
+                <button onclick="startTimer(3600)" class="glass py-4 rounded-2xl hover:bg-white/10">1h</button>
+                <button onclick="startTimer(5400)" class="glass py-4 rounded-2xl hover:bg-white/10">1.5h</button>
+                <button onclick="startTimer(7200)" class="glass py-4 rounded-2xl hover:bg-white/10">2h</button>
+                <button onclick="startTimer(6)" class="col-span-2 border border-[#44e57a]/30 py-2 rounded-xl text-[#44e57a] text-sm">Test (6s)</button>
             </div>
         </div>
     </div>
@@ -46,23 +46,32 @@
     </div>
 
     <!-- SCREEN 3: ALERT -->
-    <div id="alert-screen" class="h-screen flex flex-col items-center justify-center p-6 text-center hidden">
-        <div class="absolute inset-0 z-0 opacity-40">
-            <img src="hare_relax.JPG" class="w-full h-full object-cover" onerror="this.style.display='none'">
+    <div id="alert-screen" class="h-screen flex flex-col lg:flex-row items-center justify-center p-6 gap-8 hidden overflow-y-auto">
+        <!-- IMAGE SIDE -->
+        <div class="w-full lg:w-1/2 max-h-[45vh] lg:max-h-[80vh] flex items-center justify-center">
+            <img src="hare_relax.JPG" class="rounded-[32px] shadow-2xl max-w-full max-h-full object-contain border border-white/10" onerror="this.style.display='none'">
         </div>
-        <div class="relative z-10 glass p-8 rounded-[40px] w-full max-w-sm">
-            <h2 class="text-3xl font-bold mb-4">Czas na przerwę!</h2>
-            <p class="mb-8 opacity-80">Twoje oczy potrzebują odpoczynku.</p>
+        
+        <!-- CONTENT SIDE -->
+        <div class="glass p-8 rounded-[40px] w-full max-w-sm text-center flex-shrink-0">
+            <h2 class="text-3xl font-bold mb-4 text-[#44e57a]">Czas na przerwę!</h2>
+            <p class="mb-8 opacity-80">Twoje oczy potrzebują odpoczynku. Spójrz na zająca i odetchnij.</p>
             <div class="flex flex-col gap-4">
-                <button onclick="showRelax()" class="btn-primary py-5 rounded-2xl text-xl">RELAX NOW</button>
-                <button onclick="delayRelax()" class="glass py-4 rounded-2xl opacity-70">Delay 5 min</button>
+                <button onclick="showRelax()" class="btn-primary py-5 rounded-2xl text-xl shadow-lg shadow-[#44e57a]/20">RELAX NOW</button>
+                <div class="text-xs uppercase tracking-widest opacity-40 mt-2">Odłóż o:</div>
+                <div class="grid grid-cols-2 gap-2">
+                    <button onclick="delayRelax(300)" class="glass py-3 rounded-xl text-sm opacity-70 hover:opacity-100 transition-all">5 min</button>
+                    <button onclick="delayRelax(600)" class="glass py-3 rounded-xl text-sm opacity-70 hover:opacity-100 transition-all">10 min</button>
+                    <button onclick="delayRelax(900)" class="glass py-3 rounded-xl text-sm opacity-70 hover:opacity-100 transition-all">15 min</button>
+                    <button onclick="delayRelax(1800)" class="glass py-3 rounded-xl text-sm opacity-70 hover:opacity-100 transition-all">30 min</button>
+                </div>
             </div>
         </div>
     </div>
 
     <!-- SCREEN 4: RELAX -->
     <div id="relax-screen" class="h-screen flex flex-col items-center justify-center p-6 text-center hidden" style="background-image: url('zorza.jpg')">
-        <div class="glass p-8 rounded-[40px] bg-black/20">
+        <div class="p-8 rounded-[40px] bg-black/10 backdrop-blur-[3px] border border-white/10">
             <h2 class="text-4xl font-bold mb-4">Odpocznij...</h2>
             <p class="text-xl mb-8">Spójrz w dal, rozciągnij się.</p>
             <p class="animate-pulse text-[#44e57a]">Naciśnij dowolny klawisz, aby wrócić</p>
@@ -113,8 +122,8 @@
             if (navigator.vibrate) navigator.vibrate([500, 200, 500]);
         }
 
-        function delayRelax() {
-            startTimer(300); // 5 minut
+        function delayRelax(seconds) {
+            startTimer(seconds);
         }
 
         function showRelax() {
