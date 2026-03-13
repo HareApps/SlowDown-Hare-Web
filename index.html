@@ -64,6 +64,7 @@
                     <button onclick="delayRelax(600)" class="glass py-3 rounded-xl text-sm opacity-70 hover:opacity-100 transition-all">10 min</button>
                     <button onclick="delayRelax(900)" class="glass py-3 rounded-xl text-sm opacity-70 hover:opacity-100 transition-all">15 min</button>
                     <button onclick="delayRelax(1800)" class="glass py-3 rounded-xl text-sm opacity-70 hover:opacity-100 transition-all">30 min</button>
+                    <button onclick="delayRelax(6)" class="col-span-2 border border-[#44e57a]/30 py-2 rounded-xl text-[#44e57a] text-xs">Test (6s)</button>
                 </div>
             </div>
         </div>
@@ -83,6 +84,7 @@
     <script>
         let timeLeft = 0;
         let timerInterval = null;
+        let isDelayMode = false;
         const sound = document.getElementById('alert-sound');
 
         function showScreen(id) {
@@ -92,7 +94,8 @@
             document.getElementById(id).classList.remove('hidden');
         }
 
-        function startTimer(seconds) {
+        function startTimer(seconds, isDelay = false) {
+            isDelayMode = isDelay;
             timeLeft = seconds;
             updateDisplay();
             showScreen('timer-screen');
@@ -123,10 +126,11 @@
         }
 
         function delayRelax(seconds) {
-            startTimer(seconds);
+            startTimer(seconds, true);
         }
 
         function showRelax() {
+            isDelayMode = false; // Po kliknięciu Relax Now, resetujemy tryb delay
             showScreen('relax-screen');
             window.addEventListener('keydown', resetApp, { once: true });
             window.addEventListener('mousedown', resetApp, { once: true });
@@ -134,7 +138,12 @@
 
         function resetApp() {
             clearInterval(timerInterval);
-            showScreen('start-screen');
+            if (isDelayMode) {
+                showScreen('alert-screen');
+                isDelayMode = false;
+            } else {
+                showScreen('start-screen');
+            }
         }
 
         // Service Worker Registration
