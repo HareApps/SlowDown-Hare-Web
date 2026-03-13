@@ -3,11 +3,10 @@ const ASSETS = [
   './',
   './index.html',
   './manifest.json',
+  './icon.png',
   './zorza.jpg',
   './hare_relax.JPG',
-  './soundreality-notification-piano-443094.mp3',
-  './logo192.png',
-  './logo512.png'
+  './soundreality-notification-piano-443094.mp3'
 ];
 
 self.addEventListener('install', (event) => {

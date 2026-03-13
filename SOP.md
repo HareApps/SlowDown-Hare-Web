@@ -1,67 +1,38 @@
 # Standard Operating Procedure (SOP) - SlowDown HareApp
 
-Ten dokument opisuje standardowe procedury korzystania, utrzymania i aktualizacji aplikacji SlowDown HareApp.
+Ten dokument opisuje standardowe procedury korzystania z aplikacji SlowDown HareApp w celu zapewnienia optymalnej higieny pracy.
 
 ---
 
 ## 1. Cel i Zakres
-Zapewnienie użytkownikowi regularnych przerw w celu redukcji zmęczenia cyfrowego (Digital Eye Strain) i poprawy ergonomii pracy.
+Zapewnienie użytkownikowi regularnych przerw w celu redukcji zmęczenia cyfrowego (Digital Eye Strain) i poprawy ergonomii pracy przy komputerze.
 
-## 2. Procedura Użytkowania (User Guide)
+## 2. Procedura Użytkowania
 
 ### Konfiguracja (Setup):
-1. **Wybór Interwału**: Rekomendowany czas pracy to 1 godzina.
-2. **Inicjalizacja**: Kliknij "START ACTIVITY", aby rozpocząć odliczanie.
+1. **Wybór Interwału**: Wybierz preferowany czas pracy (np. 1h).
+2. **Inicjalizacja**: Kliknij wybrany przycisk czasu, aby rozpocząć odliczanie.
 
 ### Obsługa Alertu:
-- **Relax Now**: Natychmiastowe odejście od komputera (Rekomendowane).
-- **Delay Relax**: Odroczenie przerwy (używać tylko w sytuacjach wyjątkowych).
+- **RELAX NOW**: Natychmiastowe przejście do sesji relaksacyjnej. Rekomendowane dla pełnego odpoczynku oczu.
+- **Odłóż o...**: Jeśli jesteś w trakcie ważnego zadania, możesz odroczyć przerwę o 5, 10, 15 lub 30 minut.
 
 ### Sesja Relaksacyjna:
-- Zastosuj zasadę 20-20-20 (patrzenie w dal przez 20 sekund).
-- Wykonaj proste ćwiczenia rozciągające.
-- Po powrocie naciśnij dowolny klawisz, aby zresetować system.
+- Zastosuj zasadę 20-20-20 (patrzenie na obiekt oddalony o 6 metrów przez 20 sekund).
+- Wykonaj proste ćwiczenia rozciągające szyję i ramiona.
+- Po zakończeniu naciśnij dowolny klawisz lub kliknij ekran, aby zresetować system i wrócić do pracy.
 
----
+## 3. Instalacja jako PWA (Progressive Web App)
 
-## 3. Zarządzanie Zasobami (Technical Maintenance)
+Aplikacja działa najlepiej po zainstalowaniu na urządzeniu, co pozwala na dostęp offline i szybsze uruchamianie.
 
-Aplikacja polega na plikach multimedialnych umieszczonych w głównym katalogu repozytorium na GitHubie.
+### Na telefonie (iOS/Android):
+1. Otwórz aplikację w przeglądarce.
+2. Wybierz opcję **"Udostępnij"** (iOS) lub menu (Android).
+3. Kliknij **"Dodaj do ekranu głównego"**.
 
-### Aktualizacja zdjęć:
-1. Przygotuj plik `.jpg` lub `.JPG`.
-2. Nadaj mu nazwę `zorza.jpg` (dla ekranu relaksu) lub `hare_relax.JPG` (dla ekranu alertu).
-3. Wgraj plik do repozytorium GitHub, nadpisując istniejący.
-
-### Aktualizacja dźwięku:
-1. Przygotuj plik `.mp3`.
-2. Nadaj mu nazwę `soundreality-notification-piano-443094.mp3`.
-3. Wgraj do repozytorium.
-
-## 4. Konfiguracja Interwałów (Kod)
-
-Interwały czasowe są zdefiniowane bezpośrednio w pliku `index.html` w sekcji `<script>`.
-- Przyciski wywołują funkcję `startTimer(sekundy)`.
-- Możesz dodać nowy przycisk w sekcji `<!-- SCREEN 1: START -->`.
-
-## 5. Tryb Offline i PWA (Progressive Web App)
-
-Aplikacja została wzbogacona o funkcje PWA, co pozwala na jej działanie bez dostępu do internetu.
-
-### Jak zainstalować na telefonie?
-1. Otwórz link do aplikacji w przeglądarce (Safari na iOS, Chrome na Android).
-2. Wybierz opcję **"Udostępnij"** (iOS) lub menu (trzy kropki na Android).
-3. Kliknij **"Dodaj do ekranu głównego"** (Add to Home Screen).
-4. Aplikacja pojawi się jako ikona na pulpicie i będzie działać nawet bez internetu.
-
-### Jak to działa technicznie?
-- Plik `manifest.json` definiuje wygląd aplikacji na telefonie.
-- Plik `sw.js` (Service Worker) zapisuje pliki aplikacji (kod, zdjęcia, dźwięk) w pamięci podręcznej telefonu przy pierwszym uruchomieniu.
-
-## 6. Procedura Wdrażania (Deployment)
-
-1. Po dokonaniu zmian w AI Studio, użyj funkcji **Export to GitHub**.
-2. **WAŻNE**: Przy eksporcie do nowego repozytorium, pamiętaj o ponownym wgraniu plików graficznych i dźwiękowych (GitHub ich nie przesyła automatycznie z AI Studio).
+### Na komputerze:
+1. W przeglądarce Chrome lub Edge kliknij ikonę instalacji w pasku adresu (po prawej stronie).
 
 ---
 *Ostatnia aktualizacja: 13 marca 2026*

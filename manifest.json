@@ -1,0 +1,16 @@
+{
+  "short_name": "HareApp",
+  "name": "SlowDown HareApp",
+  "icons": [
+    {
+      "src": "icon.png",
+      "type": "image/png",
+      "sizes": "512x512",
+      "purpose": "any maskable"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#202121",
+  "background_color": "#202121"
+}
