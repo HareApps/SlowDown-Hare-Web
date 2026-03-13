@@ -27,5 +27,11 @@ SlowDown HareApp to nowoczesna aplikacja webowa (PWA) zaprojektowana w estetyce 
 
 Aplikacja jest gotowa do użycia bezpośrednio w przeglądarce. Dzięki technologii PWA możesz ją dodać do ekranu głównego swojego urządzenia, aby mieć do niej szybki dostęp jak do natywnej aplikacji.
 
+## Podziękowania:
+Aplikacja korzysta z plików multimedialnyc. Dziekuję twórcom za ich bezpłtne udostępnienie
+- **Amarga**: za obraz hare_relax
+- **
+
+
 ---
 *Zadbaj o swoje oczy. Zacznij przerwę z zającem.* 🌿
