@@ -36,11 +36,9 @@ Aplikacja korzysta z własnych zasobów, które należy umieścić w głównym k
 Aplikacja jest dostępna pod adresem:  
 👉 **[https://hareapps.github.io/SlowDown-Hare-Web/](https://hareapps.github.io/SlowDown-Hare-Web/)**
 
-### Jak zaktualizować stronę po zmianach?
-Jeśli dokonasz zmian w kodzie i chcesz, aby rodzina zobaczyła nową wersję:
-1. Pobierz kod na komputer (`git pull`).
-2. Uruchom w terminalu: `npm run deploy`.
-To automatycznie zbuduje aplikację i wyśle ją na serwer GitHub Pages.
+### Jak zaktualizować stronę?
+1. Wykonaj **Export to GitHub** w AI Studio.
+2. To wszystko! GitHub Pages automatycznie odświeży stronę z gałęzi `main`.
 
 ## 🛠️ Jak uruchomić lokalnie?
 

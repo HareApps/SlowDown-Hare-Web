@@ -1,49 +1,137 @@
 <!DOCTYPE html>
 <html lang="pl">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>SlowDown HareApp</title>
-    <link rel="manifest" href="/manifest.json" />
-    <meta name="theme-color" content="#202121" />
-    <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-    <meta name="apple-mobile-web-app-title" content="HareApp" />
-    
-    <!-- Tailwind CSS via CDN -->
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#202121">
+    <link rel="apple-touch-icon" href="logo192.png">
     <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-      tailwind.config = {
-        theme: {
-          extend: {
-            fontFamily: {
-              sans: ['Inter', 'sans-serif'],
-            },
-          },
-        },
-      }
-    </script>
-    <script>
-      if ('serviceWorker' in navigator) {
-        window.addEventListener('load', () => {
-          navigator.serviceWorker.register('/sw.js')
-            .then(reg => console.log('SW registered!', reg))
-            .catch(err => console.log('SW registration failed: ', err));
-        });
-      }
-    </script>
-    <style type="text/css">
-      @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=JetBrains+Mono:wght@400;700&display=swap');
-      
-      body {
-        margin: 0;
-        padding: 0;
-        background-color: #020617; /* slate-950 */
-      }
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;500;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #202121; color: white; overflow: hidden; }
+        h1, h2 { font-family: 'Space Grotesk', sans-serif; }
+        .glass { background: rgba(255, 255, 255, 0.05); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.1); }
+        .btn-primary { background-color: #44e57a; color: #002e23; font-weight: 700; transition: all 0.2s; }
+        .btn-primary:active { transform: scale(0.95); opacity: 0.9; }
+        .hidden { display: none; }
+        #relax-screen { background-size: cover; background-position: center; }
     </style>
 </head>
-  <body class="antialiased">
-    <div id="root"></div>
-    <script type="module" src="/index.tsx"></script>
+<body>
+
+    <!-- SCREEN 1: START -->
+    <div id="start-screen" class="h-screen flex flex-col items-center justify-center p-6 text-center">
+        <h1 class="text-4xl font-bold mb-2 text-[#44e57a]">SlowDown</h1>
+        <p class="text-gray-400 mb-8">Zadbaj o swoje oczy i umysł.</p>
+        
+        <div class="glass p-6 rounded-3xl w-full max-w-sm">
+            <h2 class="text-lg mb-4 opacity-70">Wybierz czas pracy:</h2>
+            <div class="grid grid-cols-2 gap-3">
+                <button onclick="startTimer(3600)" class="glass py-4 rounded-2xl hover:bg-white/10">1h</button>
+                <button onclick="startTimer(2700)" class="glass py-4 rounded-2xl hover:bg-white/10">45m</button>
+                <button onclick="startTimer(1800)" class="glass py-4 rounded-2xl hover:bg-white/10">30m</button>
+                <button onclick="startTimer(900)" class="glass py-4 rounded-2xl hover:bg-white/10">15m</button>
+                <button onclick="startTimer(10)" class="col-span-2 border border-[#44e57a]/30 py-2 rounded-xl text-[#44e57a] text-sm">Test (10s)</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- SCREEN 2: TIMER -->
+    <div id="timer-screen" class="h-screen flex flex-col items-center justify-center p-6 hidden">
+        <div class="text-sm uppercase tracking-widest opacity-50 mb-4">Czas do przerwy</div>
+        <div id="display-time" class="text-7xl font-bold mb-8 font-mono">00:00</div>
+        <button onclick="resetApp()" class="text-red-400 opacity-50 hover:opacity-100 transition-opacity">ANULUJ</button>
+    </div>
+
+    <!-- SCREEN 3: ALERT -->
+    <div id="alert-screen" class="h-screen flex flex-col items-center justify-center p-6 text-center hidden">
+        <div class="absolute inset-0 z-0 opacity-40">
+            <img src="hare_relax.JPG" class="w-full h-full object-cover" onerror="this.style.display='none'">
+        </div>
+        <div class="relative z-10 glass p-8 rounded-[40px] w-full max-w-sm">
+            <h2 class="text-3xl font-bold mb-4">Czas na przerwę!</h2>
+            <p class="mb-8 opacity-80">Twoje oczy potrzebują odpoczynku.</p>
+            <div class="flex flex-col gap-4">
+                <button onclick="showRelax()" class="btn-primary py-5 rounded-2xl text-xl">RELAX NOW</button>
+                <button onclick="delayRelax()" class="glass py-4 rounded-2xl opacity-70">Delay 5 min</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- SCREEN 4: RELAX -->
+    <div id="relax-screen" class="h-screen flex flex-col items-center justify-center p-6 text-center hidden" style="background-image: url('zorza.jpg')">
+        <div class="glass p-8 rounded-[40px] bg-black/20">
+            <h2 class="text-4xl font-bold mb-4">Odpocznij...</h2>
+            <p class="text-xl mb-8">Spójrz w dal, rozciągnij się.</p>
+            <p class="animate-pulse text-[#44e57a]">Naciśnij dowolny klawisz, aby wrócić</p>
+        </div>
+    </div>
+
+    <audio id="alert-sound" src="soundreality-notification-piano-443094.mp3"></audio>
+
+    <script>
+        let timeLeft = 0;
+        let timerInterval = null;
+        const sound = document.getElementById('alert-sound');
+
+        function showScreen(id) {
+            ['start-screen', 'timer-screen', 'alert-screen', 'relax-screen'].forEach(s => {
+                document.getElementById(s).classList.add('hidden');
+            });
+            document.getElementById(id).classList.remove('hidden');
+        }
+
+        function startTimer(seconds) {
+            timeLeft = seconds;
+            updateDisplay();
+            showScreen('timer-screen');
+            
+            clearInterval(timerInterval);
+            timerInterval = setInterval(() => {
+                timeLeft--;
+                updateDisplay();
+                if (timeLeft <= 0) {
+                    triggerAlert();
+                }
+            }, 1000);
+        }
+
+        function updateDisplay() {
+            const mins = Math.floor(timeLeft / 60);
+            const secs = timeLeft % 60;
+            document.getElementById('display-time').innerText = 
+                `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+        }
+
+        function triggerAlert() {
+            clearInterval(timerInterval);
+            sound.play().catch(e => console.log("Audio play blocked"));
+            showScreen('alert-screen');
+            // Wibracja jeśli dostępna
+            if (navigator.vibrate) navigator.vibrate([500, 200, 500]);
+        }
+
+        function delayRelax() {
+            startTimer(300); // 5 minut
+        }
+
+        function showRelax() {
+            showScreen('relax-screen');
+            window.addEventListener('keydown', resetApp, { once: true });
+            window.addEventListener('mousedown', resetApp, { once: true });
+        }
+
+        function resetApp() {
+            clearInterval(timerInterval);
+            showScreen('start-screen');
+        }
+
+        // Service Worker Registration
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('sw.js');
+        }
+    </script>
 </body>
 </html>
