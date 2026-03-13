@@ -31,7 +31,18 @@ Aplikacja korzysta z własnych zasobów, które należy umieścić w głównym k
 - **Stylizacja**: [Tailwind CSS](https://tailwindcss.com/)
 - **Build Tool**: [Vite](https://vitejs.dev/)
 
-## 🚀 Jak uruchomić lokalnie?
+## 🚀 Wersja Online (GitHub Pages)
+
+Aplikacja jest dostępna pod adresem:  
+👉 **[https://hareapps.github.io/SlowDown-Hare-Web/](https://hareapps.github.io/SlowDown-Hare-Web/)**
+
+### Jak zaktualizować stronę po zmianach?
+Jeśli dokonasz zmian w kodzie i chcesz, aby rodzina zobaczyła nową wersję:
+1. Pobierz kod na komputer (`git pull`).
+2. Uruchom w terminalu: `npm run deploy`.
+To automatycznie zbuduje aplikację i wyśle ją na serwer GitHub Pages.
+
+## 🛠️ Jak uruchomić lokalnie?
 
 1. **Zainstaluj zależności**:
    ```bash
