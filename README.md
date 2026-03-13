@@ -31,7 +31,7 @@ Aplikacja jest gotowa do użycia bezpośrednio w przeglądarce. Dzięki technolo
 Aplikacja korzysta z plików multimedialnyc. Dziekuję twórcom za ich bezpłtne udostępnienie
 - **Amarga**: za obraz hare_relax
 - **SoundReality - Pixabay** za plik muzyczny soundreality-notification-piano-443094.mp3
-- **Gemini AI i Nano Banana 2** za wygenerowany maszynowo obraz zorza.jpg
+- **Gemini AI i Nano Banana 2** za wygenerowane maszynowo obrazy zorza.jpg i icon.png
 - **AI Studio and Gemini AI** za daleko idącą pomoc w opracowaniu kodu metodą vibe-codingu.
 
 
