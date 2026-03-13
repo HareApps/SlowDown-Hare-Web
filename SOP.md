@@ -40,8 +40,9 @@ Aplikacja polega na plikach multimedialnych umieszczonych w głównym katalogu r
 
 ## 4. Konfiguracja Interwałów (Kod)
 
-Interwały czasowe są zdefiniowane w pliku `src/types.ts`.
-- Aby dodać nowy czas, zmodyfikuj tablicę `ACTIVITY_INTERVALS`.
+Interwały czasowe są zdefiniowane bezpośrednio w pliku `index.html` w sekcji `<script>`.
+- Przyciski wywołują funkcję `startTimer(sekundy)`.
+- Możesz dodać nowy przycisk w sekcji `<!-- SCREEN 1: START -->`.
 
 ## 5. Tryb Offline i PWA (Progressive Web App)
 

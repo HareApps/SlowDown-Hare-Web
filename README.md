@@ -26,10 +26,9 @@ Aplikacja korzysta z własnych zasobów, które należy umieścić w głównym k
 
 ## 🛠️ Tech Stack
 
-- **Framework**: [React 19](https://react.dev/)
-- **Język**: [TypeScript](https://www.typescriptlang.org/)
-- **Stylizacja**: [Tailwind CSS](https://tailwindcss.com/)
-- **Build Tool**: [Vite](https://vitejs.dev/)
+- **Język**: HTML5, JavaScript (Vanilla JS)
+- **Stylizacja**: [Tailwind CSS](https://tailwindcss.com/) (via CDN)
+- **PWA**: Service Worker & Web Manifest
 
 ## 🚀 Wersja Online (GitHub Pages)
 
@@ -42,15 +41,11 @@ Aplikacja jest dostępna pod adresem:
 
 ## 🛠️ Jak uruchomić lokalnie?
 
-1. **Zainstaluj zależności**:
+1. **Otwórz plik**: Po prostu otwórz `index.html` w dowolnej przeglądarce.
+2. **Opcjonalnie (Serwer)**: Jeśli chcesz przetestować funkcje PWA/Offline, użyj prostego serwera:
    ```bash
-   npm install
+   npx serve .
    ```
-2. **Uruchom serwer deweloperski**:
-   ```bash
-   npm run dev
-   ```
-3. **Otwórz w przeglądarce**: `http://localhost:3000`
 
 ---
 
