@@ -1,0 +1,5 @@
+{
+  "name": "SlowDown HareApp",
+  "description": "A break reminder application that helps users maintain healthy computer habits by prompting for regular relaxation intervals.",
+  "requestFramePermissions": []
+}
