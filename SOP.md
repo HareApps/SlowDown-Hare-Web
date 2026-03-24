@@ -11,7 +11,7 @@ Zapewnienie użytkownikowi regularnych przerw w celu redukcji zmęczenia cyfrowe
 
 ### Konfiguracja (Setup):
 1. **Wybór Interwału**: Wybierz preferowany czas pracy (np. 1h).
-2. **Inicjalizacja**: Kliknij wybrany przycisk czasu, aby rozpocząć odliczanie.
+2. **Inicjalizacja**: Kliknij wybrany przycisk czasu, aby rozpocząć odliczanie. System oblicza czas zakończenia na podstawie zegara systemowego, co gwarantuje precyzję nawet przy uśpieniu przeglądarki.
 
 ### Obsługa Alertu:
 - **RELAX NOW**: Natychmiastowe przejście do sesji relaksacyjnej. Rekomendowane dla pełnego odpoczynku oczu.
@@ -35,4 +35,4 @@ Aplikacja działa najlepiej po zainstalowaniu na urządzeniu, co pozwala na dost
 1. W przeglądarce Chrome lub Edge kliknij ikonę instalacji w pasku adresu (po prawej stronie).
 
 ---
-*Ostatnia aktualizacja: 13 marca 2026*
+*Ostatnia aktualizacja: 24 marca 2026*

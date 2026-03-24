@@ -82,46 +82,53 @@
     <audio id="alert-sound" src="soundreality-notification-piano-443094.mp3"></audio>
 
     <script>
-        let timeLeft = 0;
+        let endTime = 0;
         let timerInterval = null;
         let isDelayMode = false;
         const sound = document.getElementById('alert-sound');
 
         function showScreen(id) {
             ['start-screen', 'timer-screen', 'alert-screen', 'relax-screen'].forEach(s => {
-                document.getElementById(s).classList.add('hidden');
+                const el = document.getElementById(s);
+                if (el) el.classList.add('hidden');
             });
-            document.getElementById(id).classList.remove('hidden');
+            const target = document.getElementById(id);
+            if (target) target.classList.remove('hidden');
         }
 
         function startTimer(seconds, isDelay = false) {
             isDelayMode = isDelay;
-            timeLeft = seconds;
+            endTime = Date.now() + (seconds * 1000);
             updateDisplay();
             showScreen('timer-screen');
             
             clearInterval(timerInterval);
             timerInterval = setInterval(() => {
-                timeLeft--;
-                updateDisplay();
-                if (timeLeft <= 0) {
+                const now = Date.now();
+                if (now >= endTime) {
+                    updateDisplay();
                     triggerAlert();
+                } else {
+                    updateDisplay();
                 }
-            }, 1000);
+            }, 500); // Częstsze sprawdzanie dla płynności
         }
 
         function updateDisplay() {
+            const now = Date.now();
+            const timeLeft = Math.max(0, Math.ceil((endTime - now) / 1000));
             const mins = Math.floor(timeLeft / 60);
             const secs = timeLeft % 60;
-            document.getElementById('display-time').innerText = 
-                `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+            const display = document.getElementById('display-time');
+            if (display) {
+                display.innerText = `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+            }
         }
 
         function triggerAlert() {
             clearInterval(timerInterval);
             sound.play().catch(e => console.log("Audio play blocked"));
             showScreen('alert-screen');
-            // Wibracja jeśli dostępna
             if (navigator.vibrate) navigator.vibrate([500, 200, 500]);
         }
 
@@ -130,7 +137,7 @@
         }
 
         function showRelax() {
-            isDelayMode = false; // Po kliknięciu Relax Now, resetujemy tryb delay
+            isDelayMode = false;
             showScreen('relax-screen');
             window.addEventListener('keydown', resetApp, { once: true });
             window.addEventListener('mousedown', resetApp, { once: true });
@@ -146,7 +153,6 @@
             }
         }
 
-        // Service Worker Registration
         if ('serviceWorker' in navigator) {
             navigator.serviceWorker.register('sw.js');
         }

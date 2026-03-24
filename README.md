@@ -10,7 +10,7 @@ SlowDown HareApp to nowoczesna aplikacja webowa (PWA) zaprojektowana w estetyce 
 ## ✨ Funkcje
 
 - 🕒 **Elastyczne Interwały**: Wybierz czas pracy: 30m, 1h, 1.5h lub 2h.
-- ⏳ **Tryb Odliczania**: Dyskretne działanie w tle z możliwością podglądu pozostałego czasu.
+- ⏳ **Tryb Odliczania**: Precyzyjne odliczanie oparte na czasie systemowym, odporne na uśpienie karty w przeglądarce.
 - 🔔 **Inteligentne Alerty**: Powiadomienia o konieczności zrobienia przerwy z opcją "RELAX NOW" lub "Odłóż".
 - 🎵 **Powiadomienia Dźwiękowe**: Kojący sygnał audio przy każdym alercie.
 - 🧘 **Sesje Relaksacyjne**: Dedykowany ekran relaksu z zorzą polarną, pomagający odciążyć wzrok.
@@ -26,14 +26,6 @@ SlowDown HareApp to nowoczesna aplikacja webowa (PWA) zaprojektowana w estetyce 
 ## 🚀 Uruchomienie
 
 Aplikacja jest gotowa do użycia bezpośrednio w przeglądarce. Dzięki technologii PWA możesz ją dodać do ekranu głównego swojego urządzenia, aby mieć do niej szybki dostęp jak do natywnej aplikacji.
-
-## Podziękowania:
-Aplikacja korzysta z plików multimedialnyc. Dziekuję twórcom za ich bezpłtne udostępnienie
-- **Amarga**: za obraz hare_relax
-- **SoundReality - Pixabay** za plik muzyczny soundreality-notification-piano-443094.mp3
-- **Gemini AI i Nano Banana 2** za wygenerowane maszynowo obrazy zorza.jpg i icon.png
-- **AI Studio and Gemini AI** za daleko idącą pomoc w opracowaniu kodu metodą vibe-codingu.
-
 
 ---
 *Zadbaj o swoje oczy. Zacznij przerwę z zającem.* 🌿
