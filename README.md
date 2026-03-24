@@ -1,4 +1,4 @@
-# 🐇 SlowDown HareApp
+# 🐇 SlowDown-Hare-Web
 
 > **Rest your eyes, refresh your mind.**  
 > Inteligentny asystent przerw, który dba o Twoją higienę pracy przy komputerze.
