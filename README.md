@@ -3,7 +3,7 @@
 > **Rest your eyes, refresh your mind.**  
 > Inteligentny asystent przerw, który dba o Twoją higienę pracy przy komputerze.
 
-SlowDown HareApp to nowoczesna aplikacja webowa (PWA) zaprojektowana w estetyce **Glassmorphism**, która pomaga użytkownikom utrzymać zdrowe nawyki poprzez regularne przypomnienia o przerwach. Powstała medodą vibe-codingu w Google AI Studio. 
+SlowDown-Hare-Web to nowoczesna aplikacja webowa (PWA) zaprojektowana w estetyce **Glassmorphism**, która pomaga użytkownikom utrzymać zdrowe nawyki poprzez regularne przypomnienia o przerwach. Powstała medodą vibe-codingu w Google AI Studio. 
 
 ---
 
