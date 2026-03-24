@@ -26,7 +26,7 @@ SlowDown HareApp to nowoczesna aplikacja webowa (PWA) zaprojektowana w estetyce 
 ## Podziękowania: 
 - **Amarga** - za obraz hare_relax
 - **SoundReality** i **Pixabay** za dźwięk soundreality-notification-piano
-- **Gemini** i **Nano banana 2** za zorzę
+- **Gemini** i **Nano banana 2** za zorzę i icon
 
 ## 🚀 Uruchomienie
 
